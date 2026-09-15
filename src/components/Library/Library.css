@@ -1,0 +1,52 @@
+.library-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.library-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.library-icon { font-size: 1.5rem; }
+
+.library-quote {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.55;
+  border-left: 2px solid var(--gold-border);
+  padding-left: var(--sp-md);
+}
+
+.library-character {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.library-source {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.library-context {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-top: var(--sp-sm);
+  border-top: 1px solid var(--border);
+}
+
+.library-tags {
+  display: flex;
+  gap: var(--sp-xs);
+  flex-wrap: wrap;
+  margin-top: var(--sp-xs);
+}
+
+.library-culture { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.08em; }

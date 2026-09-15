@@ -1,0 +1,148 @@
+.win-backdrop {
+  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.08) 0%, rgba(10, 10, 25, 0.97) 70%);
+}
+
+.win-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-lg);
+  padding: var(--sp-xl);
+}
+
+.win-goal-label {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 6px 16px;
+  background: rgba(76, 175, 80, 0.15);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: var(--r-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-win);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.win-icon {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 24px currentColor);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 24px currentColor); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 36px currentColor); }
+}
+
+.win-quote-wrapper {
+  position: relative;
+  max-width: 540px;
+  text-align: center;
+}
+
+.win-quote-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0;
+  color: var(--gold);
+  opacity: 0.3;
+  position: absolute;
+  top: 24px;
+  left: -20px;
+}
+
+.win-quote-mark.closing {
+  top: auto;
+  bottom: -16px;
+  left: auto;
+  right: -20px;
+}
+
+.win-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-style: italic;
+  padding: 0 var(--sp-lg);
+}
+
+.win-attribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.win-character {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.win-source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.win-context {
+  max-width: 460px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  padding: var(--sp-md);
+  border-left: 2px solid var(--gold-border);
+  border-right: 2px solid var(--gold-border);
+}
+
+.win-culture-badge {
+  padding: 4px 14px;
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.win-reactions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.reaction-row {
+  display: flex;
+  gap: var(--sp-sm);
+}
+
+.reaction-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reaction-btn:hover {
+  transform: scale(1.2);
+  border-color: var(--gold-border);
+  background: var(--gold-dim);
+}
+
+.win-dismiss {
+  margin-top: var(--sp-sm);
+}

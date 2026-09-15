@@ -1,0 +1,85 @@
+.roast-backdrop {
+  background: radial-gradient(ellipse at center, rgba(229, 57, 53, 0.08) 0%, rgba(10, 10, 25, 0.97) 70%);
+}
+
+.roast-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-md);
+  padding: var(--sp-xl);
+}
+
+.roast-persona-badge {
+  padding: 5px 16px;
+  background: var(--accent-miss-dim);
+  border: 1px solid rgba(229, 57, 53, 0.3);
+  border-radius: var(--r-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-miss);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.roast-icon {
+  font-size: 4rem;
+  animation: roastShake 0.6s ease-in-out;
+}
+
+@keyframes roastShake {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  10% { transform: rotate(-8deg) scale(1.1); }
+  30% { transform: rotate(8deg) scale(1.05); }
+  50% { transform: rotate(-5deg); }
+  70% { transform: rotate(5deg); }
+  90% { transform: rotate(-2deg); }
+}
+
+.roast-goal-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.roast-goal-label strong {
+  color: var(--accent-miss);
+}
+
+.roast-text {
+  max-width: 520px;
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.roast-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: var(--sp-sm) 0;
+}
+
+.roast-comeback {
+  max-width: 480px;
+  text-align: center;
+  padding: var(--sp-md) var(--sp-lg);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.roast-reaction:hover {
+  border-color: rgba(229, 57, 53, 0.4);
+}

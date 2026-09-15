@@ -1,0 +1,92 @@
+.form-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--sp-lg);
+}
+
+.goal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-lg);
+  max-width: 640px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-sm);
+}
+
+.cat-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--sp-sm) var(--sp-xs);
+  border-radius: var(--r-md);
+  border: 2px solid var(--border);
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.cat-btn:hover { border-color: var(--gold-border); }
+
+.cat-btn.selected.cat-btn-health { border-color: var(--cat-health); background: rgba(229, 57, 53, 0.1); }
+.cat-btn.selected.cat-btn-career { border-color: var(--cat-career); background: rgba(30, 136, 229, 0.1); }
+.cat-btn.selected.cat-btn-finance { border-color: var(--cat-finance); background: rgba(67, 160, 71, 0.1); }
+.cat-btn.selected.cat-btn-learning { border-color: var(--cat-learning); background: rgba(142, 36, 170, 0.1); }
+.cat-btn.selected.cat-btn-personal { border-color: var(--cat-personal); background: rgba(255, 143, 0, 0.1); }
+
+.cat-btn-icon { font-size: 1.3rem; }
+.cat-btn-label { font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); }
+
+.subtask-input-row {
+  display: flex;
+  gap: var(--sp-sm);
+}
+
+.subtask-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+  margin-top: var(--sp-sm);
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+}
+
+.subtask-title { font-size: 0.875rem; color: var(--text-primary); }
+
+.subtask-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: color var(--t-fast);
+}
+.subtask-remove:hover { color: var(--accent-miss); }
+
+.form-error {
+  font-size: 0.875rem;
+  color: var(--accent-miss);
+  background: var(--accent-miss-dim);
+  padding: var(--sp-sm) var(--sp-md);
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(229, 57, 53, 0.3);
+}
+
+@media (max-width: 500px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+}
