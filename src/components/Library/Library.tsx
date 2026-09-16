@@ -4,22 +4,22 @@ import type { GoalCategory, MythCulture } from '../../types';
 import './Library.css';
 
 const CULTURE_FILTERS: { value: 'all' | MythCulture; label: string }[] = [
-  { value: 'all', label: '⚡ All' },
-  { value: 'greek', label: '🏛️ Greek' },
-  { value: 'hindu', label: '🪷 Hindu' },
-  { value: 'norse', label: '🐦‍⬛ Norse' },
-  { value: 'japanese', label: '🗡️ Japanese' },
-  { value: 'stoic', label: '🧘 Stoic' },
-  { value: 'movie', label: '🎬 Movies' },
+  { value: 'all', label: '◆ All' },
+  { value: 'greek', label: '◆ Greek' },
+  { value: 'hindu', label: '◆ Hindu' },
+  { value: 'norse', label: '◆ Norse' },
+  { value: 'japanese', label: '◆ Japanese' },
+  { value: 'stoic', label: '◆ Stoic' },
+  { value: 'movie', label: '◆ Movies' },
 ];
 
 const CATEGORY_FILTERS: { value: 'all' | GoalCategory; label: string }[] = [
   { value: 'all', label: 'All Goals' },
-  { value: 'health', label: '❤️ Health' },
-  { value: 'career', label: '💼 Career' },
-  { value: 'finance', label: '💰 Finance' },
-  { value: 'learning', label: '📚 Learning' },
-  { value: 'personal', label: '🌟 Personal' },
+  { value: 'health', label: '◆ Health' },
+  { value: 'career', label: '◆ Career' },
+  { value: 'finance', label: '◆ Finance' },
+  { value: 'learning', label: '◆ Learning' },
+  { value: 'personal', label: '◆ Personal' },
 ];
 
 export default function Library() {

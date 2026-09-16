@@ -29,7 +29,7 @@ export default function GoalDetail() {
   if (!goal) {
     return (
       <div className="page-content">
-        <div className="empty-state"><div className="empty-state-icon">🎯</div><p>Goal not found.</p></div>
+        <div className="empty-state"><div className="empty-state-icon">✦</div><p>Goal not found.</p></div>
       </div>
     );
   }
@@ -62,15 +62,15 @@ export default function GoalDetail() {
       <div className="detail-stats grid-3 mt-lg">
         <div className="card stat-card">
           <div className="stat-value">{streak ?? 0}</div>
-          <div className="stat-label">🔥 Day Streak</div>
+          <div className="stat-label">Day Streak</div>
         </div>
         <div className="card stat-card">
           <div className="stat-value">{winRate}%</div>
-          <div className="stat-label">✅ Win Rate</div>
+          <div className="stat-label">Win Rate</div>
         </div>
         <div className="card stat-card">
           <div className="stat-value">{doneCount}</div>
-          <div className="stat-label">🏆 Total Wins</div>
+          <div className="stat-label">Total Wins</div>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export default function GoalDetail() {
               <div key={c.id} className={`history-item ${c.status}`}>
                 <span className="history-date">{format(new Date(c.date + 'T00:00:00'), 'MMM d, yyyy')}</span>
                 <span className={`badge ${c.status === 'done' ? 'badge-win' : c.status === 'missed' ? 'badge-miss' : ''}`}>
-                  {c.status === 'done' ? '✅ Done' : c.status === 'missed' ? '❌ Missed' : '⏭ Skipped'}
+                  {c.status === 'done' ? '◆ Done' : c.status === 'missed' ? '◆ Missed' : '◆ Skipped'}
                 </span>
               </div>
             ))}

@@ -1,7 +1,7 @@
 export type GoalCategory = 'health' | 'career' | 'finance' | 'learning' | 'personal';
 export type GoalRecurrence = 'daily' | 'weekly' | 'once';
 export type CheckInStatus = 'done' | 'missed' | 'skip';
-export type Theme = 'dark' | 'light' | 'mythic';
+export type Theme = 'dark' | 'mythic';
 export type RoastPersona = 'sarcastic' | 'honest' | 'playful' | 'coach' | 'ramsay';
 export type ContentType = 'myth' | 'movie' | 'stoic';
 export type MythCulture = 'greek' | 'hindu' | 'norse' | 'japanese' | 'stoic' | 'movie';

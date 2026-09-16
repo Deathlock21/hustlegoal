@@ -10,8 +10,9 @@
   border-bottom: 1px solid var(--border);
 }
 
-[data-theme='light'] .navbar {
-  background: rgba(245, 240, 232, 0.9);
+[data-theme='mythic'] .navbar {
+  background: rgba(18, 12, 8, 0.85);
+  backdrop-filter: blur(20px);
 }
 
 [data-theme='dark'] .navbar {

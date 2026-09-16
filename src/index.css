@@ -76,25 +76,25 @@
   --nav-h: 64px;
 }
 
-/* Light Theme */
-[data-theme='light'] {
-  --bg-primary: #F5F0E8;
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #EDE8DC;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F9F5EE;
-  --bg-overlay: rgba(245, 240, 232, 0.97);
-  --gold: #B8860B;
-  --gold-light: #D4A017;
-  --gold-dim: rgba(184, 134, 11, 0.1);
-  --gold-border: rgba(184, 134, 11, 0.25);
-  --text-primary: #1A1209;
-  --text-secondary: #5C4B2A;
-  --text-muted: #9E8A68;
-  --text-gold: #B8860B;
-  --border: rgba(184, 134, 11, 0.15);
-  --border-strong: rgba(184, 134, 11, 0.35);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+/* Mythic Theme — Ancient Greece (Dark Marble / Frosted Glass) */
+[data-theme='mythic'] {
+  --bg-primary:    transparent;
+  --bg-secondary:  rgba(20, 15, 10, 0.7);
+  --bg-tertiary:   rgba(35, 25, 15, 0.75);
+  --bg-card:       rgba(18, 12, 8, 0.75);
+  --bg-card-hover: rgba(28, 18, 12, 0.85);
+  --bg-overlay:    rgba(10, 8, 5, 0.92);
+  --gold: #D4AF37;
+  --gold-light: #F9E596;
+  --gold-dim: rgba(212, 175, 55, 0.15);
+  --gold-border: rgba(212, 175, 55, 0.35);
+  --text-primary: #FDFBF7;
+  --text-secondary: #DBCDB6;
+  --text-muted: #A39681;
+  --text-gold: #D4AF37;
+  --border: rgba(212, 175, 55, 0.25);
+  --border-strong: rgba(212, 175, 55, 0.5);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* Dark Theme — Batman 2022 */
@@ -144,6 +144,56 @@
   --font-display: 'Bebas Neue', 'Cinzel', serif;
 }
 
+/* ─── MYTHIC THEME IMAGE BACKGROUND ──────────────────────────────── */
+[data-theme='mythic'] body {
+  background: transparent;
+}
+
+[data-theme='mythic']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/src/assets/greek_background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(0.82) saturate(0.9);
+}
+
+/* ─── DARK THEME VIDEO BACKGROUND ────────────────────────────────── */
+
+/* Override ALL bg vars to semi-transparent so video bleeds through every component */
+[data-theme='dark'] {
+  --bg-primary:    transparent;
+  --bg-secondary:  rgba(8,  8,  8,  0.55);
+  --bg-tertiary:   rgba(14, 14, 14, 0.6);
+  --bg-card:       rgba(10, 10, 10, 0.6);
+  --bg-card-hover: rgba(22, 22, 22, 0.65);
+  --bg-overlay:    rgba(4,  4,  4,  0.85);
+}
+
+[data-theme='dark'] body {
+  background: transparent;
+}
+
+.dark-video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(0.8) saturate(0.85);
+}
+
+/* scrim div is no longer needed — remove it visually if still rendered */
+.dark-video-scrim { display: none; }
+
+
+
 /* ─── RESET & BASE ────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -185,6 +235,17 @@ input, textarea, select {
 .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
 .caption { font-size: 0.8rem; color: var(--text-secondary); }
 
+/* Ensure floating text is readable against the background image in Mythic */
+[data-theme='mythic'] .display-1,
+[data-theme='mythic'] .display-2,
+[data-theme='mythic'] .heading-1,
+[data-theme='mythic'] .heading-2,
+[data-theme='mythic'] .label,
+[data-theme='mythic'] .caption,
+[data-theme='mythic'] .text-secondary {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
 /* ─── LAYOUT ──────────────────────────────────────────────────────── */
 .page-content {
   flex: 1;
@@ -210,6 +271,8 @@ input, textarea, select {
   border-radius: var(--r-md);
   padding: var(--sp-xl);
   box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background var(--t-med), border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med);
 }
 .card:hover { background: var(--bg-card-hover); }
@@ -233,6 +296,8 @@ input, textarea, select {
   transition: all var(--t-fast);
   border: 1px solid transparent;
   white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .btn:active { transform: scale(0.97); }
 .btn:disabled {
@@ -283,6 +348,8 @@ input, textarea, select {
   border-radius: var(--r-full);
   font-size: 0.75rem;
   font-weight: 600;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .badge-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
 .badge-win { background: var(--accent-win-dim); color: var(--accent-win); }
@@ -306,6 +373,8 @@ input, textarea, select {
   font-size: 0.95rem;
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
   width: 100%;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;

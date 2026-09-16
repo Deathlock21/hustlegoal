@@ -1,11 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Target, BarChart2, BookOpen, User, Plus, Sun, Moon, Flame } from 'lucide-react';
+import { Target, BarChart2, BookOpen, User, Plus, Moon, Flame } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
 import type { Theme } from '../../types';
 import './Navbar.css';
 
-const THEMES: Theme[] = ['mythic', 'dark', 'light'];
-const THEME_ICONS = { mythic: <Flame size={16} />, dark: <Moon size={16} />, light: <Sun size={16} /> };
+const THEMES: Theme[] = ['mythic', 'dark'];
+const THEME_ICONS = { mythic: <Flame size={16} />, dark: <Moon size={16} /> };
 
 export default function Navbar() {
   const { theme, setTheme } = useAppStore();

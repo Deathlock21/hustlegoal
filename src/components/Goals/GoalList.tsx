@@ -8,12 +8,12 @@ import type { Goal, GoalCategory } from '../../types';
 import './GoalList.css';
 
 const CATEGORY_FILTERS: { value: 'all' | GoalCategory; label: string }[] = [
-  { value: 'all', label: '⚡ All' },
-  { value: 'health', label: '❤️ Health' },
-  { value: 'career', label: '💼 Career' },
-  { value: 'finance', label: '💰 Finance' },
-  { value: 'learning', label: '📚 Learning' },
-  { value: 'personal', label: '🌟 Personal' },
+  { value: 'all', label: '◆ All' },
+  { value: 'health', label: '◆ Health' },
+  { value: 'career', label: '◆ Career' },
+  { value: 'finance', label: '◆ Finance' },
+  { value: 'learning', label: '◆ Learning' },
+  { value: 'personal', label: '◆ Personal' },
 ];
 
 export default function GoalList() {
@@ -69,7 +69,7 @@ export default function GoalList() {
 
       {filtered.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-state-icon">🎯</div>
+          <div className="empty-state-icon">✦</div>
           <div className="empty-state-title">No goals here yet.</div>
           <p>The ones who win are the ones who start.</p>
           <button className="btn btn-primary mt-md" onClick={() => navigate('/goals/new')}>

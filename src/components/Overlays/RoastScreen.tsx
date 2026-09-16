@@ -6,17 +6,17 @@ import { fillRoastTemplate } from '../../data/roastContent';
 import './RoastScreen.css';
 
 const REACTIONS = [
-  { emoji: '😂', label: 'Funny' },
-  { emoji: '💀', label: 'Dead' },
-  { emoji: '🔥', label: 'Motivated' },
+  { icon: '◆', label: 'Funny' },
+  { icon: '◆', label: 'Dead' },
+  { icon: '◆', label: 'Motivated' },
 ];
 
 const PERSONA_LABELS: Record<string, string> = {
-  sarcastic: '😏 Sarcasm Mode',
-  honest: '💀 Brutal Honesty',
-  playful: '😂 Playfully Mean',
-  coach: '🏋️ Coach Mode',
-  ramsay: '👨‍🍳 Gordon Ramsay',
+  sarcastic: '◆ Sarcasm Mode',
+  honest: '◆ Brutal Honesty',
+  playful: '◆ Playfully Mean',
+  coach: '◆ Coach Mode',
+  ramsay: '◆ Gordon Ramsay',
 };
 
 interface RoastScreenProps {
@@ -56,7 +56,7 @@ export default function RoastScreen({ profile }: RoastScreenProps) {
               {PERSONA_LABELS[roast.persona] || roast.persona}
             </div>
 
-            <div className="roast-icon">💀</div>
+            <div className="roast-icon">✦</div>
 
             <div className="roast-goal-label">
               Missed: <strong>{overlay.goalTitle}</strong>
@@ -84,9 +84,9 @@ export default function RoastScreen({ profile }: RoastScreenProps) {
             <div className="win-reactions">
               <span className="caption">How did that hit?</span>
               <div className="reaction-row">
-                {REACTIONS.map(r => (
-                  <button key={r.emoji} className="reaction-btn roast-reaction" onClick={dismissOverlay} title={r.label}>
-                    {r.emoji}
+                {REACTIONS.map((r, i) => (
+                  <button key={i} className="btn btn-ghost btn-sm" onClick={dismissOverlay}>
+                    {r.icon} {r.label}
                   </button>
                 ))}
               </div>

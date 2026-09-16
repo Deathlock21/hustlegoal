@@ -7,11 +7,11 @@ import type { GoalCategory, GoalRecurrence, Subtask } from '../../types';
 import './NewGoalForm.css';
 
 const CATEGORIES: { value: GoalCategory; label: string; icon: string }[] = [
-  { value: 'health', label: 'Health', icon: '❤️' },
-  { value: 'career', label: 'Career', icon: '💼' },
-  { value: 'finance', label: 'Finance', icon: '💰' },
-  { value: 'learning', label: 'Learning', icon: '📚' },
-  { value: 'personal', label: 'Personal', icon: '🌟' },
+  { value: 'health', label: 'Health', icon: '◆' },
+  { value: 'career', label: 'Career', icon: '◆' },
+  { value: 'finance', label: 'Finance', icon: '◆' },
+  { value: 'learning', label: 'Learning', icon: '◆' },
+  { value: 'personal', label: 'Personal', icon: '◆' },
 ];
 
 export default function NewGoalForm() {
@@ -136,9 +136,9 @@ export default function NewGoalForm() {
               value={priority}
               onChange={e => setPriority(Number(e.target.value) as 1 | 2 | 3)}
             >
-              <option value={1}>🔴 High</option>
-              <option value={2}>🟡 Medium</option>
-              <option value={3}>🟢 Low</option>
+              <option value={1}>◆ High</option>
+              <option value={2}>◇ Medium</option>
+              <option value={3}>◈ Low</option>
             </select>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function NewGoalForm() {
             style={{ flex: 1 }}
             disabled={saving || !title.trim()}
           >
-            {saving ? 'Saving...' : '🎯 Lock It In'}
+            {saving ? 'Saving...' : '✦ Lock It In'}
           </button>
         </div>
       </form>

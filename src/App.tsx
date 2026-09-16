@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import batmanBg from './assets/batman_background.mp4';
 import Navbar from './components/Layout/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import GoalList from './components/Goals/GoalList';
@@ -42,6 +43,20 @@ function AppShell() {
 
   return (
     <>
+      {theme === 'dark' && (
+        <>
+          <video
+            key="dark-bg-video"
+            className="dark-video-bg"
+            src={batmanBg}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div className="dark-video-scrim" />
+        </>
+      )}
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />

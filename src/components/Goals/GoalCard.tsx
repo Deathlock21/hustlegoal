@@ -73,7 +73,7 @@ export default function GoalCard({ goal, profile, onClick }: GoalCardProps) {
           <div className="goal-card-info">
             {daysUntilDeadline !== null && (
               <span className={`caption ${daysUntilDeadline <= 3 ? 'text-miss' : 'text-muted'}`}>
-                {daysUntilDeadline > 0 ? `⏱ ${daysUntilDeadline}d left` : daysUntilDeadline === 0 ? '⚠️ Due today' : '🔴 Overdue'}
+                {daysUntilDeadline > 0 ? `${daysUntilDeadline}d left` : daysUntilDeadline === 0 ? '✦ Due today' : '◆ Overdue'}
               </span>
             )}
           </div>
@@ -107,7 +107,7 @@ export default function GoalCard({ goal, profile, onClick }: GoalCardProps) {
               </>
             ) : (
               <span className={`checked-label ${todayCheck?.status}`}>
-                {isDone ? '✅ Done' : isMissed ? '❌ Missed' : '⏭ Skipped'}
+                {isDone ? '◆ Done' : isMissed ? '◆ Missed' : '◆ Skipped'}
               </span>
             )}
           </div>

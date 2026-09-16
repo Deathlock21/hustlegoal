@@ -8,11 +8,11 @@ import './Onboarding.css';
 
 
 const PERSONAS: { value: RoastPersona; label: string; desc: string }[] = [
-  { value: 'sarcastic', label: '😏 Sarcastic', desc: 'Witty, dry, and a little cutting' },
-  { value: 'honest', label: '💀 Brutally Honest', desc: 'No sugarcoating. Real talk only.' },
-  { value: 'playful', label: '😂 Playfully Mean', desc: 'Jokes, but they sting a little' },
-  { value: 'coach', label: '🏋️ Coach Mode', desc: 'Tough love with a path forward' },
-  { value: 'ramsay', label: '👨‍🍳 Gordon Ramsay', desc: 'WHAT IS THIS DISGRACE?!' },
+  { value: 'sarcastic', label: '◆ Sarcastic', desc: 'Witty, dry, and a little cutting' },
+  { value: 'honest', label: '◆ Brutally Honest', desc: 'No sugarcoating. Real talk only.' },
+  { value: 'playful', label: '◆ Playfully Mean', desc: 'Jokes, but they sting a little' },
+  { value: 'coach', label: '◆ Coach Mode', desc: 'Tough love with a path forward' },
+  { value: 'ramsay', label: '◆ Gordon Ramsay', desc: 'WHAT IS THIS DISGRACE?!' },
 ];
 
 interface OnboardingProps {
@@ -22,7 +22,7 @@ interface OnboardingProps {
 export default function Onboarding({ onComplete }: OnboardingProps) {
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
-  const [avatar, setAvatar] = useState('🔥');
+  const [avatar, setAvatar] = useState('◆');
   const [persona, setPersona] = useState<RoastPersona>('sarcastic');
   const [intensity, setIntensity] = useState(3);
   const { setTheme } = useAppStore();
@@ -55,7 +55,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
       >
         {step === 1 && (
           <motion.div key="step1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="onboarding-step">
-            <div className="onboarding-icon">⚡</div>
+            <div className="onboarding-icon">✦</div>
             <h1 className="onboarding-title">Welcome to HustleGoal</h1>
             <p className="onboarding-subtitle">
               Built for focused people who hold themselves to a higher standard.
@@ -102,7 +102,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
 
         {step === 2 && (
           <motion.div key="step2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="onboarding-step">
-            <div className="onboarding-icon">🔥</div>
+            <div className="onboarding-icon">✦</div>
             <h2 className="onboarding-title">How should we roast you, {name}?</h2>
             <p className="onboarding-subtitle">
               When you miss a goal, HustleGoal holds you accountable. Choose your style.
@@ -144,7 +144,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                 style={{ flex: 1 }}
                 onClick={handleComplete}
               >
-                Let's Get to Work 🔥
+                Let's Get to Work ✦
               </button>
             </div>
           </motion.div>

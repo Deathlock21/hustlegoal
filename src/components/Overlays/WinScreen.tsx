@@ -5,7 +5,7 @@ import { CULTURE_PALETTE, FALLBACK_ACCENT } from '../../data/constants';
 import type { ContentEntry } from '../../types';
 import './WinScreen.css';
 
-const REACTIONS = ['🙌', '🔥', '⚡', '🏆', '💪'];
+const REACTIONS = ['Nice', 'Great', 'Epic', 'Legend', 'Solid'];
 
 export default function WinScreen() {
   const { overlay, dismissOverlay } = useAppStore();

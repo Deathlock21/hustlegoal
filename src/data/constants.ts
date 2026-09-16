@@ -22,19 +22,19 @@ export const FALLBACK_ACCENT = '#D4AF37';
 
 /** Category display labels */
 export const CATEGORY_LABELS: Record<GoalCategory, string> = {
-  health:   '❤️ Health',
-  career:   '💼 Career',
-  finance:  '💰 Finance',
-  learning: '📚 Learning',
-  personal: '🌟 Personal',
+  health:   '◆ Health',
+  career:   '◆ Career',
+  finance:  '◆ Finance',
+  learning: '◆ Learning',
+  personal: '◆ Personal',
 };
 
 /** Priority display labels (1 = high priority) */
 export const PRIORITY_LABELS: Record<1 | 2 | 3, string> = {
-  1: '🔴 High',
-  2: '🟡 Medium',
-  3: '🟢 Low',
+  1: '◆ High',
+  2: '◇ Medium',
+  3: '◈ Low',
 };
 
-/** Emoji avatars for user selection */
-export const AVATAR_OPTIONS = ['🔥', '⚡', '🗡️', '🏛️', '🐉', '⚔️', '🎯', '👑', '🌊', '🌙'];
+/** Geometric avatars for user selection */
+export const AVATAR_OPTIONS = ['◆', '◇', '✦', '✧', '■', '□', '▲', '△', '▼', '▽'];

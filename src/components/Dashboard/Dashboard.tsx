@@ -71,12 +71,9 @@ export default function Dashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
         >
-          <div className="home-empty-card card">
-            <span className="home-empty-icon">💀</span>
-            <blockquote className="home-empty-roast">
-              "no gaols for today??given up already huh "
-            </blockquote>
-          </div>
+          <blockquote className="home-empty-roast">
+            "no gaols for today??given up already huh "
+          </blockquote>
         </motion.div>
       ) : (
         /* Full Layout — When goals are set */
@@ -104,7 +101,7 @@ export default function Dashboard() {
             <div className="card stat-card">
               <Flame size={20} className="stat-icon" />
               <div className="stat-value">{(activeStreaks as Array<{ goal: Goal; streak: number }> | undefined)?.[0]?.streak ?? 0}</div>
-              <div className="stat-label">Best Streak 🔥</div>
+              <div className="stat-label">Best Streak</div>
             </div>
           </motion.div>
 
@@ -149,7 +146,7 @@ export default function Dashboard() {
               transition={{ delay: 0.35, duration: 0.4 }}
             >
               <div className="section-header mb-md">
-                <h2 className="heading-1">Active Streaks 🔥</h2>
+                <h2 className="heading-1">Active Streaks</h2>
               </div>
               <div className="streaks-list">
                 {(activeStreaks as Array<{ goal: Goal; streak: number }>).map(({ goal, streak }) => (

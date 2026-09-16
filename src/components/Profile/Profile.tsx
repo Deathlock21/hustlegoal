@@ -16,7 +16,6 @@ const PERSONAS: { value: RoastPersona; label: string }[] = [
 const THEMES: { value: Theme; label: string; icon: string }[] = [
   { value: 'mythic', label: 'Mythic', icon: '⚡' },
   { value: 'dark', label: 'Dark', icon: '🌙' },
-  { value: 'light', label: 'Light', icon: '☀️' },
 ];
 
 const MYTH_PREFS: { value: MythCulture; label: string }[] = [
