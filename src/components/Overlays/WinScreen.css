@@ -1,5 +1,5 @@
 .win-backdrop {
-  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.08) 0%, rgba(10, 10, 25, 0.97) 70%);
+  background: radial-gradient(ellipse at center, var(--gold-dim) 0%, var(--bg-overlay) 70%);
 }
 
 .win-content {
@@ -15,8 +15,8 @@
   align-items: center;
   gap: var(--sp-sm);
   padding: 6px 16px;
-  background: rgba(76, 175, 80, 0.15);
-  border: 1px solid rgba(76, 175, 80, 0.3);
+  background: var(--accent-win-dim);
+  border: 1px solid var(--accent-win);
   border-radius: var(--r-full);
   font-size: 0.8rem;
   font-weight: 600;

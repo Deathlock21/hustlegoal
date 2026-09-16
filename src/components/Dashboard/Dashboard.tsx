@@ -36,6 +36,7 @@ export default function Dashboard() {
 
   const winPct = winRate ? (winRate.total > 0 ? Math.round((winRate.wins / winRate.total) * 100) : 0) : 0;
   const todayDate = format(new Date(), 'EEEE, MMMM d');
+  const hasGoals = todaysGoals.length > 0;
 
   return (
     <div className="page-content">
@@ -51,112 +52,125 @@ export default function Dashboard() {
           <h1 className="display-2 mt-sm">
             {GREETING()}, <span className="text-gold">{profile?.name ?? 'Warrior'}</span>
           </h1>
-          <p className="text-secondary mt-sm">The battlefield is today. What are you winning?</p>
+          {hasGoals && (
+            <p className="text-secondary mt-sm">The battlefield is today. What are you winning?</p>
+          )}
         </div>
-        <button id="dashboard-new-goal" className="btn btn-primary" onClick={() => navigate('/goals/new')}>
-          <Plus size={16} /> New Goal
-        </button>
-      </motion.div>
-
-      {/* Stats Row */}
-      <motion.div
-        className="grid-3 mt-lg"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.15, duration: 0.4 }}
-      >
-        <div className="card stat-card">
-          <TrendingUp size={20} className="stat-icon" />
-          <div className="stat-value">{winPct}%</div>
-          <div className="stat-label">7-Day Win Rate</div>
-          <div className="progress-bar mt-sm">
-            <div className="progress-fill" style={{ width: `${winPct}%` }} />
-          </div>
-        </div>
-        <div className="card stat-card">
-          <Target size={20} className="stat-icon" />
-          <div className="stat-value">{todaysGoals.length}</div>
-          <div className="stat-label">Goals Today</div>
-        </div>
-        <div className="card stat-card">
-          <Flame size={20} className="stat-icon" />
-          <div className="stat-value">{(activeStreaks as Array<{ goal: Goal; streak: number }> | undefined)?.[0]?.streak ?? 0}</div>
-          <div className="stat-label">Best Streak 🔥</div>
-        </div>
-      </motion.div>
-
-      {/* Today's Goals */}
-      <motion.section
-        className="mt-xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.25, duration: 0.4 }}
-      >
-        <div className="section-header">
-          <h2 className="heading-1">Today's Focus</h2>
-          <button className="btn btn-ghost btn-sm" onClick={() => navigate('/goals')}>
-            View all →
+        {hasGoals && (
+          <button id="dashboard-new-goal" className="btn btn-primary" onClick={() => navigate('/goals/new')}>
+            <Plus size={16} /> New Goal
           </button>
-        </div>
-
-        {todaysGoals.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-state-icon">🎯</div>
-            <div className="empty-state-title">No goals for today.</div>
-            <p>The ones who win are the ones who show up.</p>
-            <button className="btn btn-primary mt-md" onClick={() => navigate('/goals/new')}>
-              <Plus size={16} /> Add Your First Goal
-            </button>
-          </div>
-        ) : (
-          <div className="grid-auto mt-md">
-            {todaysGoals.map((goal: Goal, i: number) => (
-              <motion.div
-                key={goal.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i }}
-              >
-                <GoalCard
-                  goal={goal}
-                  profile={profile}
-                  onClick={() => navigate(`/goals/${goal.id}`)}
-                />
-              </motion.div>
-            ))}
-          </div>
         )}
-      </motion.section>
+      </motion.div>
 
-      {/* Active Streaks */}
-      {(activeStreaks as Array<{ goal: Goal; streak: number }> | undefined)?.length ? (
-        <motion.section
-          className="mt-xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35, duration: 0.4 }}
+      {!hasGoals ? (
+        /* Empty State — Spacious, roast-focused, no stats summary, no add goal button */
+        <motion.div
+          className="home-empty-container"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
         >
-          <div className="section-header mb-md">
-            <h2 className="heading-1">Active Streaks 🔥</h2>
+          <div className="home-empty-card card">
+            <span className="home-empty-icon">💀</span>
+            <blockquote className="home-empty-roast">
+              "no gaols for today??given up already huh "
+            </blockquote>
           </div>
-          <div className="streaks-list">
-            {(activeStreaks as Array<{ goal: Goal; streak: number }>).map(({ goal, streak }) => (
-              <div
-                key={goal.id}
-                className="streak-row card card-interactive"
-                onClick={() => navigate(`/goals/${goal.id}`)}
-              >
-                <div className={`cat-stripe cat-stripe-${goal.category}`} />
-                <span className="streak-row-title">{goal.title}</span>
-                <div className="streak-badge">
-                  <Flame size={14} />
-                  <span>{streak} day{streak !== 1 ? 's' : ''}</span>
-                </div>
+        </motion.div>
+      ) : (
+        /* Full Layout — When goals are set */
+        <>
+          {/* Stats Row */}
+          <motion.div
+            className="grid-3 mt-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
+          >
+            <div className="card stat-card">
+              <TrendingUp size={20} className="stat-icon" />
+              <div className="stat-value">{winPct}%</div>
+              <div className="stat-label">7-Day Win Rate</div>
+              <div className="progress-bar mt-sm">
+                <div className="progress-fill" style={{ width: `${winPct}%` }} />
               </div>
-            ))}
-          </div>
-        </motion.section>
-      ) : null}
+            </div>
+            <div className="card stat-card">
+              <Target size={20} className="stat-icon" />
+              <div className="stat-value">{todaysGoals.length}</div>
+              <div className="stat-label">Goals Today</div>
+            </div>
+            <div className="card stat-card">
+              <Flame size={20} className="stat-icon" />
+              <div className="stat-value">{(activeStreaks as Array<{ goal: Goal; streak: number }> | undefined)?.[0]?.streak ?? 0}</div>
+              <div className="stat-label">Best Streak 🔥</div>
+            </div>
+          </motion.div>
+
+          {/* Today's Goals */}
+          <motion.section
+            className="mt-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25, duration: 0.4 }}
+          >
+            <div className="section-header">
+              <h2 className="heading-1">Today's Focus</h2>
+              <button className="btn btn-ghost btn-sm" onClick={() => navigate('/goals')}>
+                View all →
+              </button>
+            </div>
+
+            <div className="grid-auto mt-lg">
+              {todaysGoals.map((goal: Goal, i: number) => (
+                <motion.div
+                  key={goal.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                >
+                  <GoalCard
+                    goal={goal}
+                    profile={profile}
+                    onClick={() => navigate(`/goals/${goal.id}`)}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Active Streaks */}
+          {(activeStreaks as Array<{ goal: Goal; streak: number }> | undefined)?.length ? (
+            <motion.section
+              className="mt-2xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.4 }}
+            >
+              <div className="section-header mb-md">
+                <h2 className="heading-1">Active Streaks 🔥</h2>
+              </div>
+              <div className="streaks-list">
+                {(activeStreaks as Array<{ goal: Goal; streak: number }>).map(({ goal, streak }) => (
+                  <div
+                    key={goal.id}
+                    className="streak-row card card-interactive"
+                    onClick={() => navigate(`/goals/${goal.id}`)}
+                  >
+                    <div className={`cat-stripe cat-stripe-${goal.category}`} />
+                    <span className="streak-row-title">{goal.title}</span>
+                    <div className="streak-badge">
+                      <Flame size={14} />
+                      <span>{streak} day{streak !== 1 ? 's' : ''}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }

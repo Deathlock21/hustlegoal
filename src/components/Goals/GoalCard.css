@@ -7,12 +7,12 @@
 }
 
 .goal-card.goal-done {
-  border-color: rgba(76, 175, 80, 0.25);
+  border-color: var(--accent-win-dim);
   opacity: 0.8;
 }
 
 .goal-card.goal-missed {
-  border-color: rgba(229, 57, 53, 0.2);
+  border-color: var(--accent-miss-dim);
 }
 
 .goal-card-body {
@@ -52,6 +52,7 @@
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -85,9 +86,10 @@
   border-color: rgba(76, 175, 80, 0.3);
 }
 .checkin-btn.done:hover {
-  background: rgba(76, 175, 80, 0.3);
+  background: var(--accent-win-dim);
+  filter: brightness(1.4);
   transform: scale(1.15);
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent-win) 30%, transparent);
 }
 
 .checkin-btn.miss {
@@ -96,7 +98,8 @@
   border-color: rgba(229, 57, 53, 0.3);
 }
 .checkin-btn.miss:hover {
-  background: rgba(229, 57, 53, 0.3);
+  background: var(--accent-miss-dim);
+  filter: brightness(1.4);
   transform: scale(1.15);
 }
 
@@ -124,5 +127,5 @@
   flex-shrink: 0;
 }
 .checkin-status-dot.done { background: var(--accent-win); box-shadow: 0 0 6px var(--accent-win); }
-.checkin-status-dot.missed { background: var(--accent-miss); }
+.checkin-status-dot.missed { background: var(--accent-miss); box-shadow: 0 0 4px var(--accent-miss); }
 .checkin-status-dot.skip { background: var(--accent-skip); }

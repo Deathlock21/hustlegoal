@@ -22,10 +22,10 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border-strong);
   border-radius: var(--r-lg);
-  padding: var(--sp-xl);
-  max-width: 520px;
+  padding: clamp(2.5rem, 5vw, 3.5rem) clamp(2rem, 4vw, 3rem);
+  max-width: 580px;
   width: 100%;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.06);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 40px var(--gold-dim);
 }
 
 .onboarding-step {
@@ -35,37 +35,40 @@
 
 .onboarding-icon {
   font-size: 3rem;
-  margin-bottom: var(--sp-md);
+  margin-bottom: var(--sp-lg);
   text-align: center;
-  filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.5));
+  filter: drop-shadow(0 0 16px var(--gold-border));
 }
 
 .onboarding-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.2rem);
   font-weight: 700;
   text-align: center;
   color: var(--text-primary);
-  margin-bottom: var(--sp-sm);
+  margin-bottom: var(--sp-md);
+  letter-spacing: 0.02em;
 }
 
 .onboarding-subtitle {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
 .avatar-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--sp-sm);
+  gap: var(--sp-md);
 }
 
 .avatar-btn {
   width: 100%;
   aspect-ratio: 1;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   border-radius: var(--r-md);
   border: 2px solid transparent;
   background: var(--bg-tertiary);
@@ -74,32 +77,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
 }
 
 .avatar-btn:hover {
   background: var(--bg-card-hover);
   border-color: var(--gold-border);
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .avatar-btn.selected {
   border-color: var(--gold);
   background: var(--gold-dim);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 16px var(--gold-dim);
 }
 
 .persona-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-sm);
+  gap: var(--sp-md);
 }
 
 .persona-btn {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
-  padding: var(--sp-md);
+  gap: 4px;
+  padding: 14px 18px;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
@@ -125,6 +129,7 @@
 }
 
 .persona-desc {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  line-height: 1.4;
 }

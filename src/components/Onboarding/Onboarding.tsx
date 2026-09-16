@@ -58,16 +58,15 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
             <div className="onboarding-icon">⚡</div>
             <h1 className="onboarding-title">Welcome to HustleGoal</h1>
             <p className="onboarding-subtitle">
-              Built for focused people who hold themselves to a higher standard.<br />
-              Let's set up your profile so the app knows who it's dealing with.
+              Built for focused people who hold themselves to a higher standard.
             </p>
 
-            <div className="form-group mt-lg">
+            <div className="form-group mt-xl">
               <label className="form-label">What do they call you?</label>
               <input
                 id="onboarding-name"
                 className="form-input"
-                placeholder="Your name (this goes in the roasts)"
+                placeholder="Enter your name"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 maxLength={32}
@@ -75,10 +74,10 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
               />
             </div>
 
-            <div className="form-group mt-md">
-              <label className="form-label">Pick your avatar</label>
+            <div className="form-group mt-lg">
+              <label className="form-label">Choose your avatar</label>
               <div className="avatar-grid">
-                {AVATAR_OPTIONS.map(a => (
+                {AVATAR_OPTIONS.slice(0, 5).map(a => (
                   <button
                     key={a}
                     className={`avatar-btn ${avatar === a ? 'selected' : ''}`}
@@ -92,11 +91,11 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
 
             <button
               id="onboarding-next-1"
-              className="btn btn-primary btn-lg btn-full mt-lg"
+              className="btn btn-primary btn-lg btn-full mt-xl"
               onClick={() => setStep(2)}
               disabled={!name.trim()}
             >
-              Next — Set Up My Accountability →
+              Continue →
             </button>
           </motion.div>
         )}
