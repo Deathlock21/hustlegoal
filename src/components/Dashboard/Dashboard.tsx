@@ -25,7 +25,7 @@ export default function Dashboard() {
   const winRate = useLiveQuery(() => getWinRateForWeek(), []);
 
   const activeStreaks = useLiveQuery(async () => {
-    const goals = await db.goals.where('archived').equals(0).toArray();
+    const goals = await db.goals.filter(g => !g.archived).toArray();
     const withStreaks = await Promise.all(
       goals.map(async (g: Goal) => ({ goal: g, streak: await getStreakForGoal(g.id!) }))
     );

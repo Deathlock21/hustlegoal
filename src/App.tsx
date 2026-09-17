@@ -7,18 +7,20 @@ import GoalList from './components/Goals/GoalList';
 import NewGoalForm from './components/Goals/NewGoalForm';
 import GoalDetail from './components/Goals/GoalDetail';
 import Profile from './components/Profile/Profile';
-import Library from './components/Library/Library';
 import Onboarding from './components/Onboarding/Onboarding';
 import WinScreen from './components/Overlays/WinScreen';
 import RoastScreen from './components/Overlays/RoastScreen';
 import { useAppStore } from './store/useAppStore';
 import { getProfile } from './db/database';
 import { useProfile } from './hooks/useProfile';
+import { useGoalDetector } from './hooks/useGoalDetector';
 
 function AppShell() {
   const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null);
   const { theme } = useAppStore();
   const profile = useProfile();
+  
+  useGoalDetector(onboardingDone ? profile : undefined);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -53,6 +55,12 @@ function AppShell() {
             loop
             muted
             playsInline
+            onTimeUpdate={(e) => {
+              if (e.currentTarget.currentTime >= 10) {
+                e.currentTarget.currentTime = 0;
+                e.currentTarget.play();
+              }
+            }}
           />
           <div className="dark-video-scrim" />
         </>
@@ -64,7 +72,6 @@ function AppShell() {
         <Route path="/goals/new" element={<NewGoalForm />} />
         <Route path="/goals/:id" element={<GoalDetail />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/library" element={<Library />} />
       </Routes>
       <WinScreen />
       <RoastScreen profile={profile} />

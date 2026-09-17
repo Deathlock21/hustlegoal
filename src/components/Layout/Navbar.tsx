@@ -33,10 +33,6 @@ export default function Navbar() {
             <Target size={16} />
             <span>Goals</span>
           </NavLink>
-          <NavLink to="/library" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            <BookOpen size={16} />
-            <span>Library</span>
-          </NavLink>
           <NavLink to="/profile" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             <User size={16} />
             <span>Profile</span>

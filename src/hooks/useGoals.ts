@@ -7,7 +7,7 @@ export function useGoals(includeArchived = false) {
   return useLiveQuery(
     () => includeArchived
       ? db.goals.orderBy('created_at').reverse().toArray()
-      : db.goals.where('archived').equals(0).reverse().sortBy('created_at'),
+      : db.goals.filter(g => !g.archived).reverse().sortBy('created_at'),
     [includeArchived]
   );
 }
@@ -18,7 +18,7 @@ export function useGoal(id: number) {
 
 export function useTodaysGoals() {
   return useLiveQuery(async () => {
-    const all = await db.goals.where('archived').equals(0).toArray();
+    const all = await db.goals.filter(g => !g.archived).toArray();
     const today = format(new Date(), 'yyyy-MM-dd');
     const dayOfWeek = new Date().getDay();
 
