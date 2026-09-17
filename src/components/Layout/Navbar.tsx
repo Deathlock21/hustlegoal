@@ -20,7 +20,11 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-logo">
-          <span className="navbar-logo-icon">⚡</span>
+          <img 
+            src={theme === 'mythic' ? '/logo-dark.png' : '/logo-white.png'} 
+            alt="Logo" 
+            className="navbar-logo-img" 
+          />
           <span className="navbar-logo-text">HUSTLE<span className="logo-accent">GOAL</span></span>
         </NavLink>
 
